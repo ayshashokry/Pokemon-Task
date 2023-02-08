@@ -2,8 +2,7 @@ import { Button } from "antd";
 import React from "react";
 import { Link } from "react-router-dom";
 import { useFetchPokemon } from "../../../helpers/customHooks/useFetchPokemon";
-import { Card } from "antd";import { LazyLoadImage } from "react-lazy-load-image-component";
-
+import { Card } from "antd";
 export default function PokemonCard({ pokemon }) {
   const url = pokemon.url;
   const [pokemonDetails, , , pokeSpices] = useFetchPokemon(url, {}, true);
@@ -11,11 +10,11 @@ export default function PokemonCard({ pokemon }) {
     pokemon?.name?.charAt(0)?.toUpperCase() + pokemon?.name?.slice(1);
   const renderLink = () => (
     <Link to={`/pokemon/${pokemonDetails?.id}`}>
-      <img
+    {pokemonDetails?.sprites?.front_default==undefined?undefined:  <img
         loading="lazy"
         src={pokemonDetails?.sprites?.front_default}
         alt="pokemonImage"
-      />
+      />}
     </Link>
   );
   return (
@@ -23,7 +22,6 @@ export default function PokemonCard({ pokemon }) {
       className="mx-xl-4  mx-lg-2 mx-md-3 pokemonCard mb-4"
       cover={renderLink()}>
       <h4>{pokemonName}</h4>
-      
 
       {pokeSpices?.flavor_text_entries !== undefined && (
         <p>{pokeSpices?.flavor_text_entries[0]?.flavor_text}</p>

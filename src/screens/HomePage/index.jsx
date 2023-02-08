@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 //import helpers
-import {useFetchPokemon} from "../../helpers/customHooks/useFetchPokemon";
+import { useFetchPokemon } from "../../helpers/customHooks/useFetchPokemon";
 //import components
 import Loader from "../../containers/Loader";
 import PokemonCard from "./components/PokemonCard";

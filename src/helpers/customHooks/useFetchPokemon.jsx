@@ -16,9 +16,9 @@ export function useFetchPokemon(url, initialState, isDetails) {
       .then((response) => {
         setData(response?.data);
         if (isDetails) {
-          axios
-            .get(response?.data?.species?.url)
-            .then((result) => setPokeSpices(result.data));
+          axios.get(response?.data?.species?.url).then((result) => {
+            setPokeSpices(result.data);
+          });
         }
         setLoading(false);
         setError(null);

@@ -31,6 +31,7 @@
 
 //Pokemon Card
 .pokemonCard {
+  width: 100% !important;
   .ant-card-cover {
     text-align: center;
     background-color: var(--gray2);
@@ -43,6 +44,7 @@
   }
   .ant-card-body {
     margin-bottom: 20px;
+    min-width: 100% !important;
     p {
       color: var(--primaryDarkGray);
       font-size: 1.1em;width: 100% !important;
