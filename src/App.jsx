@@ -3,9 +3,9 @@ import "./main.scss";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./screens/HomePage";
 import DetailsPage from "./screens/DetailsPage";
-import NavBar from "./containers/Navbar/NavBar";
+import NavBar from "./containers/NavBar";
 import { SearchContext } from "./helpers/contexts/SearchContext";
-import Page404 from "./containers/Page404/Page404";
+import Page404 from "./containers/Page404";
 
 function App() {
   const [searchText, setSearchText] = useState("");
