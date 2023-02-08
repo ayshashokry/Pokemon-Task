@@ -1,0 +1,87 @@
+.backBtn {
+  background-color: var(--darkRed);
+  color: var(--white);
+  font-weight: 600;
+  &:hover,
+  &:focus {
+    color: var(--white) !important;
+    background-color: var(--darkRed) !important;
+    border-color: transparent !important;
+  }
+  .backSpan {
+    margin-right: 10px;
+  }
+}
+.DetailsCard {
+  box-shadow: 0px 0px 8px 2px #d4d6de;
+  padding: 20px;
+  .header {
+    display: flex;
+    .pokeImg {
+      width: 10em;
+    }
+    .pokeName {
+      margin: auto 10px;
+      h1 {
+        color: var(--darkBlack);
+        font-weight: 330;
+      }
+    }
+
+    .pokeTypes {
+      margin-top: 15px;
+      button {
+        border-radius: 50px;
+        margin-right: 4px;
+        line-height: 0;
+        &:hover {
+          color: #000 !important;
+        }
+      }
+    }
+  }
+}
+.ant-tabs-nav::before {
+  border-bottom: none !important;
+}
+.ant-tabs-tab {
+  padding: 12px 15px 8px 15px !important;
+  margin: 0 0 0 7px !important;
+}
+
+.tabsTable {
+  width: 20%;
+  margin-left: 15px;
+
+  th {
+    border-right: 2px solid var(--lightGray);
+    line-height: 2.2;
+  }
+  td {
+    padding-left: 10px;
+  }
+}
+.ant-tabs-tabpane {
+  max-height: 300px;
+  overflow-y: scroll;
+}
+
+@media (max-width: 1200px) {
+  .tabsTable {
+    width: 50%;
+  }
+}
+@media (max-width: 450px) {
+  .tabsTable {
+    width: 70%;
+  }
+  .DetailsCard {
+    .header {
+      display: block;
+    }
+  }
+}
+
+.pokeTypes button {
+  cursor: auto !important;
+}

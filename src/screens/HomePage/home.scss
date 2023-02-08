@@ -1,0 +1,64 @@
+.pokeBtn {
+  background-color: var(--darkRed);
+  color: var(--white);
+  margin-right: 5rem;
+  margin-left: 5rem;
+  margin-top: 10px;
+  width: 100px;
+  &:disabled {
+    color: var(--primaryDarkGray) !important;
+    background-color: var(--primaryLightGray) !important;
+    font-weight: 600;
+    &:hover,
+    &:focus {
+      color: var(--primaryDarkGray) !important;
+      background-color: var(--primaryLightGray) !important;
+      border-color: transparent !important;
+    }
+  }
+  &:hover,
+  &:focus {
+    background-color: transparent;
+    color: var(--darkRed) !important;
+    border-color: var(--darkRed) !important;
+  }
+}
+.pageBtns {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+//Pokemon Card
+.pokemonCard {
+  .ant-card-cover {
+    text-align: center;
+    background-color: var(--gray2);
+    padding: 15px;
+    img {
+      width: 10rem;
+      margin: auto;
+    }
+  }
+  .ant-card-body {
+    margin-bottom: 20px;
+    p {
+      color: var(--primaryDarkGray);
+      font-size: 1.1em;
+    }
+    .pokeTypes {
+      position: absolute;
+      bottom: 15px;
+      button {
+        border-radius: 50px;
+        margin-right: 4px;
+        &:hover{
+          color: #000 !important;
+        }
+      }
+    }
+  }
+}
+.homeCardsRow .ant-col {
+  display: flex;
+}

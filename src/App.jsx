@@ -1,34 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useState } from "react";
+import "./main.scss";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomePage from "./screens/HomePage";
+import DetailsPage from "./screens/DetailsPage";
+import NavBar from "./containers/Navbar/NavBar";
+import { SearchContext } from "./helpers/contexts/SearchContext";
+import Page404 from "./containers/Page404/Page404";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [searchText, setSearchText] = useState("");
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    <SearchContext.Provider value={{ searchText, setSearchText }}>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/pokemon" element={<DetailsPage />} />
+        <Route path="/pokemon/:pokemonId" element={<DetailsPage />} />
+        <Route  path="/*" element={<Page404/>}/>
+      </Routes>
+    </SearchContext.Provider>
+  );
 }
 
-export default App
+export default App;

@@ -1,0 +1,15 @@
+//Import Scss files
+@use "./assets/styles/globalRules.scss";
+:root {
+  --primaryColor: #df5e56;
+  --secondColor: #e4766f;
+  --darkRed: #d32f2f;
+  --primaryBg: #ef5350;
+  --pink: #f2c0bd;
+  --primaryDarkGray: #6c6c6c;
+  --primaryLightGray: #c5c5c5;
+  --gray2: #f5f4f4;
+  --white: #fff;
+  --darkBlack: #212121;
+  --lightGray: #dadada;
+}
