@@ -1,7 +1,7 @@
 import { Button } from "antd";
-import React, { useEffect } from "react";
+import React from "react";
 import { Link, useParams } from "react-router-dom";
-import useFetchPokemon from "../../helpers/customHooks/useFetchPokemon";
+import {useFetchPokemon} from "../../helpers/customHooks/useFetchPokemon";
 import DetailsTabs from "./components/DetailsTabs";
 import NoResults from "./components/NoResults";
 import "./details.scss";
@@ -11,26 +11,12 @@ export default function DetailsPage() {
   const pokemonID = useParams();
   const APIURL = "https://pokeapi.co/api/v2/";
   const url = `${APIURL}pokemon/${pokemonID.pokemonId.toLowerCase()}`;
-  const [pokemonDetails, fetchData, loading, error] = useFetchPokemon(url, {});
-  const spiceUrl = pokemonDetails?.species?.url;
-  const [pokeSpices, fetchSpicesData] = useFetchPokemon(spiceUrl, {});
-
-  //get Pokemon details
-  useEffect(() => {
-    fetchData(url);
-  }, []);
-
-  useEffect(() => {
-    fetchData(url);
-  }, [pokemonID.pokemonId]);
-
-  //get Pokemon species
-  useEffect(() => {
-    if (pokemonDetails.species !== undefined) {
-      fetchSpicesData(spiceUrl);
-    }
-  }, [pokemonDetails]);
-  return loading ? (
+  const [pokemonDetails, isLoading, error, pokeSpices] = useFetchPokemon(
+    url,
+    {},
+    true
+  );
+  return isLoading ? (
     <Loader />
   ) : (
     <Container className="mt-5 pt-2 mb-5 ">

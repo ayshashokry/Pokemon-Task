@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState } from "react";
 //import helpers
-import useFetchPokemon from "../../helpers/customHooks/useFetchPokemon";
+import {useFetchPokemon} from "../../helpers/customHooks/useFetchPokemon";
 //import components
 import Loader from "../../containers/Loader";
 import PokemonCard from "./components/PokemonCard";
@@ -14,12 +14,7 @@ import NoResults from "../DetailsPage/components/NoResults";
 export default function HomePage() {
   const APIURL = "https://pokeapi.co/api/v2/";
   const [url, setUrl] = useState(`${APIURL}pokemon?limit=6&offset=0`);
-  const [pokemonData, fetchData, loading, error] = useFetchPokemon(url, []);
-
-  //Get first 6 pokemon
-  useEffect(() => {
-    fetchData(`${APIURL}pokemon?limit=6&offset=0`);
-  }, [url]);
+  const [pokemonData, isLoading, error] = useFetchPokemon(url, []);
 
   const handlePrevious = () => {
     if (pokemonData.previous !== undefined) {
@@ -32,7 +27,7 @@ export default function HomePage() {
       setUrl(pokemonData.next);
     }
   };
-  return loading ? (
+  return isLoading ? (
     <Loader />
   ) : error !== null ? (
     <NoResults resuestError />
