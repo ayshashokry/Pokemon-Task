@@ -8,10 +8,9 @@ export function useFetchPokemon(url, initialState, isDetails) {
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const fetchData = async () => {
+  const fetchData = () => {
     setLoading(true);
-
-    await axios
+    axios
       .get(url)
       .then((response) => {
         setData(response?.data);
@@ -29,11 +28,8 @@ export function useFetchPokemon(url, initialState, isDetails) {
       });
   };
   useEffect(() => {
-    let cleanup = false;
     fetchData();
-    return () => {
-      cleanup = true;
-    };
+
   }, [url]);
   return [data, isLoading, error, pokeSpices];
 }
