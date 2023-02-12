@@ -27,6 +27,8 @@ export default function HomePage() {
       setUrl(pokemonData.next);
     }
   };
+
+
   return isLoading ? (
     <Loader />
   ) : error !== null ? (
